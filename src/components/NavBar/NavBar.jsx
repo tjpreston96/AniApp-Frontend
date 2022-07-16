@@ -5,7 +5,7 @@ const NavBar = ({ user, handleLogout }) => {
   return (
     <>
       {user ? (
-        <nav className="navbar navbar-expand-lg bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
           <div className="container-fluid">
             <Link to="/" className="navbar-brand">
               AniApp
@@ -26,7 +26,7 @@ const NavBar = ({ user, handleLogout }) => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li>Welcome, {user.name}</li>
+                <li >Welcome, {user.name}</li>
 
                 <li className="nav-item dropdown">
                   <Link
@@ -96,7 +96,7 @@ const NavBar = ({ user, handleLogout }) => {
                     Accounts
                   </Link>
                   <ul
-                    className="dropdown-menu"
+                    className="dropdown-menu "
                     aria-labelledby="navbarDropdown"
                   >
                     <li className="dropdown-item">
@@ -117,7 +117,6 @@ const NavBar = ({ user, handleLogout }) => {
                   </ul>
                 </li>
               </ul>
-              <hr />
               <NavSearch />
             </div>
           </div>
