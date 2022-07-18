@@ -11,7 +11,7 @@ const SearchBar = ({ setResults, setSelectedIdx, setSelectedResult }) => {
     e.preventDefault();
     search(type, title).then((response) => {
       setResults(response);
-      setSelectedIdx(null);
+      setSelectedIdx(0);
       setSelectedResult(response[0]);
     });
   };
