@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "./Clock.module.css";
+// import styles from "./Clock.module.css";
 
 const Clock = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
@@ -13,13 +13,11 @@ const Clock = () => {
   }, [setTime, setDate]);
 
   return (
-    <div className={styles.time}>
-      <h3>
-        Today's Date: <br />
-        {date} <br />
-        {time}
-      </h3>
-    </div>
+    <h3 className="text-center">
+      Today's Date: <br />
+      {date} <br />
+      {time}
+    </h3>
   );
 };
 
