@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import NavSearch from "../NavSearch/NavSearch";
+// import SearchBar from "../SearchBar/SearchBar";
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -28,6 +28,7 @@ const NavBar = ({ user, handleLogout }) => {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 {/* <li className="nav-item ">Welcome, {user.name}</li> */}
 
+                {/* Anime Dropdown */}
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle"
@@ -40,7 +41,7 @@ const NavBar = ({ user, handleLogout }) => {
                     Anime
                   </Link>
                   <ul
-                    className="dropdown-menu"
+                    className="dropdown-menu dropdown-menu-dark"
                     aria-labelledby="navbarDropdown"
                   >
                     <li>
@@ -49,13 +50,14 @@ const NavBar = ({ user, handleLogout }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="#">
+                      <Link className="dropdown-item" to="/search">
                         Search
                       </Link>
                     </li>
                   </ul>
                 </li>
 
+                {/* Manga Dropdown */}
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle"
@@ -68,7 +70,7 @@ const NavBar = ({ user, handleLogout }) => {
                     Manga
                   </Link>
                   <ul
-                    className="dropdown-menu"
+                    className="dropdown-menu dropdown-menu-dark"
                     aria-labelledby="navbarDropdown"
                   >
                     <li>
@@ -77,13 +79,14 @@ const NavBar = ({ user, handleLogout }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="#">
+                      <Link className="dropdown-item" to="/search">
                         Search
                       </Link>
                     </li>
                   </ul>
                 </li>
 
+                {/* Accounts Dropdown */}
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle"
@@ -96,28 +99,40 @@ const NavBar = ({ user, handleLogout }) => {
                     Accounts
                   </Link>
                   <ul
-                    className="dropdown-menu "
+                    className="dropdown-menu dropdown-menu-dark"
                     aria-labelledby="navbarDropdown"
                   >
-                    <li className="dropdown-item">
-                      <Link to="/profiles">Profiles</Link>
+                    <li>
+                      <Link to="/profiles" className="dropdown-item">
+                        Profiles
+                      </Link>
                     </li>
+
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
 
-                    <li className="dropdown-item">
-                      <Link to="/changePassword">Change Password</Link>
+                    <li>
+                      <Link to="/changePassword" className="dropdown-item">
+                        Change Password
+                      </Link>
                     </li>
-                    <li className="dropdown-item">
-                      <Link to="" onClick={handleLogout}>
+
+                    <li>
+                      <Link
+                        to=""
+                        className="dropdown-item"
+                        onClick={handleLogout}
+                      >
                         LOG OUT
                       </Link>
                     </li>
                   </ul>
                 </li>
+                {/* <li>
+                  <SearchBar />
+                </li> */}
               </ul>
-              <NavSearch />
             </div>
           </div>
         </nav>
@@ -155,14 +170,18 @@ const NavBar = ({ user, handleLogout }) => {
                     Accounts
                   </Link>
                   <ul
-                    className="dropdown-menu "
+                    className="dropdown-menu dropdown-menu-dark"
                     aria-labelledby="navbarDropdown"
                   >
-                    <li className="dropdown-item">
-                      <Link to="/login">Log In</Link>
+                    <li>
+                      <Link to="/login" className="dropdown-item">
+                        Log In
+                      </Link>
                     </li>
-                    <li className="dropdown-item">
-                      <Link to="/signup">Sign Up</Link>
+                    <li>
+                      <Link to="/signup" className="dropdown-item">
+                        Sign Up
+                      </Link>
                     </li>
                   </ul>
                 </li>
