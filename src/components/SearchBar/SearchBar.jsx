@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { search } from "../../services/mediaService";
 
-const SearchBar = ({ setResults }) => {
+const SearchBar = ({ setResults, setSelectedIdx, setSelectedResult }) => {
   const [type, setType] = useState("anime");
   const [title, setTitle] = useState("");
 
@@ -9,7 +9,11 @@ const SearchBar = ({ setResults }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    search(type, title).then((response) => setResults(response));
+    search(type, title).then((response) => {
+      setResults(response);
+      setSelectedIdx(null);
+      setSelectedResult(response[0]);
+    });
   };
 
   return (
