@@ -10,7 +10,7 @@ const Search = () => {
 
   return (
     <div className="container">
-      <h3 className="text-center">Search Page</h3>
+      <h1 className="text-center">Search Page</h1>
       <SearchBar
         setResults={setResults}
         setSelectedIdx={setSelectedIdx}
@@ -19,20 +19,20 @@ const Search = () => {
       <br />
       {results ? (
         <div className="row">
+          <div className="col-sm-12 col-md-8">
+            {selectedResult ? <ResultDetail result={selectedResult} /> : null}
+          </div>
+          <hr className="d-md-none" />
           {/* List Group */}
-          <div className="col-4">
+          <div className="col-sm-12 col-md-4">
             <div class="list-group">
               <ResultsList
                 results={results}
                 setSelectedResult={setSelectedResult}
-                selectedResult={selectedResult}
                 setSelectedIdx={setSelectedIdx}
                 selectedIdx={selectedIdx}
               />
             </div>
-          </div>
-          <div className="col-8">
-            {selectedResult ? <ResultDetail result={selectedResult} /> : null}
           </div>
         </div>
       ) : null}
