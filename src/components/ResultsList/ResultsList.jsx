@@ -1,10 +1,16 @@
 const ResultsList = ({
   results,
   setSelectedResult,
-  selectedResult,
   selectedIdx,
   setSelectedIdx,
 }) => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const renderedList = results.map((result, idx) => {
     return (
       <div
@@ -18,6 +24,7 @@ const ResultsList = ({
         onClick={() => {
           setSelectedResult(result);
           setSelectedIdx(idx);
+          scrollToTop();
         }}
       >
         <div class="d-flex w-100 justify-content-between">
