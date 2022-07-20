@@ -17,8 +17,8 @@ const ResultsList = ({
         key={idx}
         class={
           idx === selectedIdx
-            ? "list-group-item list-group-item-action active"
-            : "list-group-item list-group-item-action"
+            ? "list-group-item list-group-item-action list-group-item-dark active"
+            : "list-group-item list-group-item-action list-group-item-dark"
         }
         aria-current="true"
         onClick={() => {
