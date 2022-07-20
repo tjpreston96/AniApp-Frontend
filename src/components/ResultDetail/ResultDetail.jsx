@@ -3,7 +3,7 @@ import styles from "./ResultDetail.module.css";
 
 const ResultDetail = ({ result }) => {
   return (
-    <div className="card">
+    <div className="card text-white bg-dark">
       <h3 className="card-title text-center">
         {result.attributes.canonicalTitle}
       </h3>
@@ -26,6 +26,12 @@ const ResultDetail = ({ result }) => {
       )}
       <div className="card-body">
         <div className="card-text">{result.attributes.description}</div>
+      </div>
+      <div class="card-footer d-grid gap-2 ">
+        <button className="btn btn-lg btn-info " disabled>
+          Show More
+        </button>
+        <button className="btn btn-lg btn-secondary">Add</button>
       </div>
     </div>
   );
