@@ -10,21 +10,21 @@ const Search = () => {
 
   return (
     <div className="container">
-      <h1 className="text-center">Search Page</h1>
+      <h1 className="text-center text-white">Search Page</h1>
       <SearchBar
         setResults={setResults}
         setSelectedIdx={setSelectedIdx}
         setSelectedResult={setSelectedResult}
       />
-      <br />
+      <hr />
       {results ? (
         <div className="row">
-          <div className="col-sm-12 col-md-8">
+          <div className="col-12 col-lg-8">
             {selectedResult ? <ResultDetail result={selectedResult} /> : null}
           </div>
-          <hr className="d-md-none" />
+          <hr className="d-lg-none" />
           {/* List Group */}
-          <div className="col-sm-12 col-md-4">
+          <div className="col-12 col-lg-4">
             <div class="list-group">
               <ResultsList
                 results={results}
