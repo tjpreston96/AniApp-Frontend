@@ -28,7 +28,8 @@ const SearchBar = ({ setResults, setSelectedIdx, setSelectedResult }) => {
           id="basic-addon2 "
           onClick={() => setType("anime")}
         >
-          <i className="bi bi-tv" /> Anime
+          <i className="bi bi-tv d-inline" />
+          <p className="d-none d-md-inline">&nbsp; Anime</p>
         </span>
 
         <span
@@ -40,7 +41,8 @@ const SearchBar = ({ setResults, setSelectedIdx, setSelectedResult }) => {
           id="basic-addon1"
           onClick={() => setType("manga")}
         >
-          <i className="bi bi-book" /> Manga
+          <i className="bi bi-book d-inline" />
+          <p className="d-none d-md-inline">&nbsp; Manga</p>
         </span>
 
         <input
