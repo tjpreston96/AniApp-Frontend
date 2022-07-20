@@ -1,12 +1,17 @@
 import React from "react";
+import styles from "./ResultDetail.module.css";
 
 const ResultDetail = ({ result }) => {
   return (
     <div className="card">
+      <h3 className="card-title text-center">
+        {result.attributes.canonicalTitle}
+      </h3>
+
       {result.type === "anime" ? (
         <iframe
           title="trailer"
-          className="ytPlayer"
+          className={styles.ytPlayer + " card-img-top rounded"}
           src={`https://www.youtube.com/embed/${result.attributes.youtubeVideoId}`}
           frameBorder="0"
           allowFullScreen
@@ -14,10 +19,14 @@ const ResultDetail = ({ result }) => {
       ) : (
         <img
           src={result.attributes.posterImage.large}
-          className="card-img-top"
-          alt="card"
+          className={styles.posterImage + " card-img-top rounded"}
+          alt="card-img"
+          style={{ maxHeight: "30rem" }}
         />
       )}
+      <div className="card-body">
+        <div className="card-text">{result.attributes.description}</div>
+      </div>
     </div>
   );
 };
