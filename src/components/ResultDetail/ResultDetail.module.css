@@ -1,0 +1,33 @@
+.ytPlayer {
+  height: 12.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  .ytPlayer {
+    height: 20rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .ytPlayer {
+    height: 30rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+    .posterImage {
+      height: 25rem;
+    }
+  }
+
+@media screen and (min-width: 576px) {
+  .posterImage {
+    height: 30rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .posterImage {
+    max-height: 35rem;
+  }
+}
