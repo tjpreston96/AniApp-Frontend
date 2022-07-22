@@ -31,7 +31,18 @@ const ResultDetail = ({ result }) => {
           style={{ maxHeight: "30rem" }}
         />
       )}
-      <div className="card-body"></div>
+      <div className="card-body">
+        <p className="card-text">
+          <b>Description:</b> {result.attributes.description}
+        </p>
+        <p className="card-text">
+          <b>Start:</b> {result.attributes.startDate}
+        </p>
+        <p className="card-text">
+          <b>Finish:</b>
+          {result.attributes.endDate ? result.attributes.endDate : "N/A"}
+        </p>
+      </div>
       <div className="card-footer d-grid gap-2 ">
         <button className="btn btn-lg btn-info" onClick={handleMoreClick}>
           {showMore ? "Show Less" : "Show More"}
