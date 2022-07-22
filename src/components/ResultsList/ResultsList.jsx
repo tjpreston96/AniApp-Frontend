@@ -12,8 +12,8 @@ const ResultsList = ({
   };
 
   const handleSelection = (result, idx) => {
-    setSelectedIdx(idx);
     setSelectedResult(result);
+    setSelectedIdx(idx);
     scrollToTop();
   };
 
