@@ -28,4 +28,17 @@ async function search(type, title) {
   return res.json();
 }
 
-export { getCollection, search };
+async function add(type, id) {
+  const res = await fetch(`${BASE_URL}/collection/${type}/add`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${tokenService.getToken()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ type, id }),
+  });
+
+  return res.json();
+}
+
+export { getCollection, search, add };
