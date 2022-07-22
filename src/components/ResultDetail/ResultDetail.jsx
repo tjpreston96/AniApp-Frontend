@@ -1,7 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./ResultDetail.module.css";
+import { add } from "../../services/mediaService";
 
 const ResultDetail = ({ result }) => {
+  const [showMore, setShowMore] = useState(false);
+
+  function handleMoreClick() {
+    setShowMore(!showMore);
+  }
+
   return (
     <div className="card text-white bg-dark">
       <h3 className="card-title text-center">
@@ -24,14 +31,17 @@ const ResultDetail = ({ result }) => {
           style={{ maxHeight: "30rem" }}
         />
       )}
-      <div className="card-body">
-        <div className="card-text">{result.attributes.description}</div>
-      </div>
-      <div class="card-footer d-grid gap-2 ">
-        <button className="btn btn-lg btn-info " disabled>
-          Show More
+      <div className="card-body"></div>
+      <div className="card-footer d-grid gap-2 ">
+        <button className="btn btn-lg btn-info" onClick={handleMoreClick}>
+          {showMore ? "Show Less" : "Show More"}
         </button>
-        <button className="btn btn-lg btn-secondary">Add</button>
+        <button
+          className="btn btn-lg btn-secondary"
+          onClick={() => add(result.type, result.id)}
+        >
+          Add
+        </button>
       </div>
     </div>
   );
