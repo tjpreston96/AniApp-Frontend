@@ -35,13 +35,28 @@ const ResultDetail = ({ result }) => {
         <p className="card-text">
           <b>Description:</b> {result.attributes.description}
         </p>
-        <p className="card-text">
-          <b>Start:</b> {result.attributes.startDate}
-        </p>
-        <p className="card-text">
-          <b>Finish:</b>
-          {result.attributes.endDate ? result.attributes.endDate : "N/A"}
-        </p>
+        {showMore ? (
+          <>
+            <p className="card-text">
+              <b>Start:</b> {result.attributes.startDate}
+            </p>
+            <p className="card-text">
+              <b>Finish:</b>{" "}
+              {result.attributes.endDate ? result.attributes.endDate : "N/A"}
+            </p>
+            <p className="card-text">
+              <b>Status:</b>{" "}
+              {result.attributes.status.charAt(0).toUpperCase() +
+                result.attributes.status.slice(1)}
+            </p>
+            <p className="card-text">
+              <b>Rating:</b>{" "}
+              {result.attributes.averageRating
+                ? result.attributes.averageRating
+                : "N/A"}
+            </p>
+          </>
+        ) : null}
       </div>
       <div className="card-footer d-grid gap-2 ">
         <button className="btn btn-lg btn-info" onClick={handleMoreClick}>
