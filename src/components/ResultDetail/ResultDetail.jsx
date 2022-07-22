@@ -35,7 +35,7 @@ const ResultDetail = ({ result }) => {
         <p className="card-text">
           <b>Description:</b> {result.attributes.description}
         </p>
-        {showMore ? (
+        {showMore && (
           <>
             <p className="card-text">
               <b>Start:</b> {result.attributes.startDate}
@@ -56,7 +56,7 @@ const ResultDetail = ({ result }) => {
                 : "N/A"}
             </p>
           </>
-        ) : null}
+        )}
       </div>
       <div className="card-footer d-grid gap-2 ">
         <button className="btn btn-lg btn-info" onClick={handleMoreClick}>
