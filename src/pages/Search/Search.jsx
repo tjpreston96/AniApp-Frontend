@@ -7,6 +7,11 @@ const Search = () => {
   const [results, setResults] = useState(null);
   const [selectedResult, setSelectedResult] = useState(null);
   const [selectedIdx, setSelectedIdx] = useState(null);
+  // const [collection, setCollection] = useState([]);
+
+  // const handleSetCollection = () => {
+
+  // };
 
   return (
     <div className="container">
@@ -17,7 +22,7 @@ const Search = () => {
         setSelectedResult={setSelectedResult}
       />
       <hr />
-      {results ? (
+      {results && (
         <div className="row">
           <div className="col-12 col-lg-8">
             {selectedResult ? <ResultDetail result={selectedResult} /> : null}
@@ -25,7 +30,7 @@ const Search = () => {
           <hr className="d-lg-none" />
           {/* List Group */}
           <div className="col-12 col-lg-4">
-            <div class="list-group">
+            <div className="list-group">
               <ResultsList
                 results={results}
                 setSelectedResult={setSelectedResult}
@@ -35,7 +40,7 @@ const Search = () => {
             </div>
           </div>
         </div>
-      ) : null}
+      )}
     </div>
   );
 };
