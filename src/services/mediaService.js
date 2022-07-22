@@ -41,4 +41,16 @@ async function add(type, id) {
   return res.json();
 }
 
-export { getCollection, search, add };
+async function userCollection(type) {
+  const res = await fetch(`${BASE_URL}/user/collection/${type}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${tokenService.getToken()}`,
+      "Content-Type": "application/json",
+    },
+  });
+  // console.log(res.json());
+  return res.json();
+}
+
+export { getCollection, search, add, userCollection };
