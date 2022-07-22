@@ -11,31 +11,35 @@ const ResultsList = ({
     });
   };
 
+  const handleSelection = (result, idx) => {
+    setSelectedIdx(idx);
+    setSelectedResult(result);
+    scrollToTop();
+  };
+
   const renderedList = results.map((result, idx) => {
     return (
       <div
         key={idx}
-        class={
+        className={
           idx === selectedIdx
             ? "list-group-item list-group-item-action list-group-item-dark active"
             : "list-group-item list-group-item-action list-group-item-dark"
         }
         aria-current="true"
-        onClick={() => {
-          setSelectedResult(result);
-          setSelectedIdx(idx);
-          scrollToTop();
-        }}
+        onClick={() => handleSelection(result, idx)}
       >
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1 text-truncate">{result.attributes.canonicalTitle}</h5>
+        <div className="d-flex w-100 justify-content-between">
+          <h5 className="mb-1 text-truncate">
+            {result.attributes.canonicalTitle}
+          </h5>
           <small>
             {result.attributes.ageRating === null
               ? "N/A"
               : result.attributes.ageRating}
           </small>
         </div>
-        <p class="mb-1 text-truncate">{result.attributes.description}</p>
+        <p className="mb-1 text-truncate">{result.attributes.description}</p>
         <small>
           {result.type === "anime"
             ? result.attributes.episodeCount + ` episodes`
