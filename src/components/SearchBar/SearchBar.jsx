@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { search } from "../../services/mediaService";
 
-const SearchBar = ({ setResults, setSelectedIdx, setSelectedResult }) => {
-  const [type, setType] = useState("anime");
+const SearchBar = ({
+  setResults,
+  setSelectedIdx,
+  setSelectedResult,
+  setType,
+  type,
+}) => {
   const [title, setTitle] = useState("");
 
   const onInputChange = (e) => setTitle(e.target.value);
