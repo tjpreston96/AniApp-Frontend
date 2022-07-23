@@ -5,17 +5,19 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { userCollection } from "../../services/mediaService";
 
 const Search = () => {
+  const [type, setType] = useState("anime");
   const [results, setResults] = useState(null);
   const [selectedResult, setSelectedResult] = useState(null);
   const [selectedIdx, setSelectedIdx] = useState(null);
   const [mangaCollection, setMangaCollection] = useState(null);
   const [animeCollection, setAnimeCollection] = useState(null);
 
+  async function setCollections() {
+    setMangaCollection(await userCollection("manga"));
+    setAnimeCollection(await userCollection("anime"));
+  }
+  
   useEffect(() => {
-    async function setCollections() {
-      setMangaCollection(await userCollection("manga"));
-      setAnimeCollection(await userCollection("anime"));
-    }
     setCollections();
   }, []);
 
@@ -26,12 +28,21 @@ const Search = () => {
         setResults={setResults}
         setSelectedIdx={setSelectedIdx}
         setSelectedResult={setSelectedResult}
+        type={type}
+        setType={setType}
       />
       <hr />
       {results && (
         <div className="row">
           <div className="col-12 col-lg-8">
-            {selectedResult ? <ResultDetail result={selectedResult} /> : null}
+            {selectedResult ? (
+              <ResultDetail
+                result={selectedResult}
+                animeCollection={animeCollection}
+                mangaCollection={mangaCollection}
+                setCollections={setCollections}
+              />
+            ) : null}
           </div>
           <hr className="d-lg-none" />
           {/* List Group */}
