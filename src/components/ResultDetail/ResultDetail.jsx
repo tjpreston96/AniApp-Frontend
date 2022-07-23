@@ -1,12 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./ResultDetail.module.css";
-import { add } from "../../services/mediaService";
+import { add, remove } from "../../services/mediaService";
 
-const ResultDetail = ({ result }) => {
+const ResultDetail = ({
+  result,
+  animeCollection,
+  mangaCollection,
+  setCollections,
+}) => {
   const [showMore, setShowMore] = useState(false);
+  const [inCollection, setInCollection] = useState(null);
+
+  useEffect(() => {
+    setInCollection(
+      result.type === "anime"
+        ? animeCollection.includes(result.id)
+        : mangaCollection.includes(result.id)
+    );
+  }, [animeCollection, mangaCollection, result]);
 
   function handleMoreClick() {
     setShowMore(!showMore);
+  }
+
+  function handleCollections() {
+    inCollection ? remove(result.type, result.id) : add(result.type, result.id);
+    setCollections();
   }
 
   return (
@@ -62,11 +81,12 @@ const ResultDetail = ({ result }) => {
         <button className="btn btn-lg btn-info" onClick={handleMoreClick}>
           {showMore ? "Show Less" : "Show More"}
         </button>
+
         <button
           className="btn btn-lg btn-secondary"
-          onClick={() => add(result.type, result.id)}
+          onClick={() => handleCollections(result)}
         >
-          Add
+          {inCollection ? "Remove" : "Add"}
         </button>
       </div>
     </div>
