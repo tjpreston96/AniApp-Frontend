@@ -16,13 +16,17 @@ const Search = () => {
   const [mangaCollection, setMangaCollection] = useState(null);
   const [animeCollection, setAnimeCollection] = useState(null);
 
-  async function setCollections() {
-    setMangaCollection(await userCollection("manga"));
+  async function setACollection() {
     setAnimeCollection(await userCollection("anime"));
   }
 
+  async function setMCollection() {
+    setMangaCollection(await userCollection("manga"));
+  }
+
   useEffect(() => {
-    setCollections();
+    setACollection();
+    setMCollection();
   }, []);
 
   return (
@@ -44,7 +48,8 @@ const Search = () => {
                 result={selectedResult}
                 animeCollection={animeCollection}
                 mangaCollection={mangaCollection}
-                setCollections={setCollections}
+                setAnimeCollection={setACollection}
+                setMangaCollection={setMCollection}
               />
             ) : null}
           </div>

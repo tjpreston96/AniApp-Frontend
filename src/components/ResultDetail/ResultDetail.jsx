@@ -6,7 +6,8 @@ const ResultDetail = ({
   result,
   animeCollection,
   mangaCollection,
-  setCollections,
+  setAnimeCollection,
+  setMangaCollection,
 }) => {
   const [showMore, setShowMore] = useState(false);
   const [inCollection, setInCollection] = useState(null);
@@ -24,8 +25,13 @@ const ResultDetail = ({
   }
 
   function handleCollections() {
-    inCollection ? remove(result.type, result.id) : add(result.type, result.id);
-    setCollections();
+    inCollection
+      ? remove(result.type, result.id).then(() =>
+          result.type === "anime" ? setAnimeCollection() : setMangaCollection()
+        )
+      : add(result.type, result.id).then(() =>
+          result.type === "anime" ? setAnimeCollection() : setMangaCollection()
+        );
   }
 
   return (
