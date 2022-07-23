@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import ResultsList from "../../components/ResultsList/ResultsList";
 import ResultDetail from "../../components/ResultDetail/ResultDetail";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { userCollection } from "../../services/mediaService";
 
 const Search = () => {
-  const [type, setType] = useState("anime");
+  let location = useLocation();
+  const [type, setType] = useState(
+    location.state.type ? location.state.type : "anime"
+  );
   const [results, setResults] = useState(null);
   const [selectedResult, setSelectedResult] = useState(null);
   const [selectedIdx, setSelectedIdx] = useState(null);
@@ -16,7 +20,7 @@ const Search = () => {
     setMangaCollection(await userCollection("manga"));
     setAnimeCollection(await userCollection("anime"));
   }
-  
+
   useEffect(() => {
     setCollections();
   }, []);
