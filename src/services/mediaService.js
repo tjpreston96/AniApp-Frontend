@@ -29,7 +29,7 @@ async function search(type, title) {
 }
 
 async function add(type, id) {
-  const res = await fetch(`${BASE_URL}/collection/${type}/add`, {
+  const res = await fetch(`${BASE_URL}/user/collection/${type}/add`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${tokenService.getToken()}`,
@@ -41,6 +41,19 @@ async function add(type, id) {
   return res.json();
 }
 
+async function remove(type, id) {
+  const res = await fetch(`${BASE_URL}/user/collection/${type}/remove`,
+  {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${tokenService.getToken()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ type, id }),
+  });
+  return res.json();
+}
+
 async function userCollection(type) {
   const res = await fetch(`${BASE_URL}/user/collection/${type}`, {
     method: "GET",
@@ -49,8 +62,8 @@ async function userCollection(type) {
       "Content-Type": "application/json",
     },
   });
-  // console.log(res.json());
+
   return res.json();
 }
 
-export { getCollection, search, add, userCollection };
+export { getCollection, search, add, remove, userCollection };
