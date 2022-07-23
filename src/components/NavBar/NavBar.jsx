@@ -50,7 +50,11 @@ const NavBar = ({ user, handleLogout }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="/search">
+                      <Link
+                        className="dropdown-item"
+                        to="/search"
+                        state={{ type: "anime" }}
+                      >
                         Search
                       </Link>
                     </li>
@@ -79,7 +83,11 @@ const NavBar = ({ user, handleLogout }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="/search">
+                      <Link
+                        className="dropdown-item"
+                        to="/search"
+                        state={{ type: "manga" }}
+                      >
                         Search
                       </Link>
                     </li>
