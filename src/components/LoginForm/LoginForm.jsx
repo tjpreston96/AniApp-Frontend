@@ -27,10 +27,14 @@ const LoginForm = (props) => {
   };
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit} className=" col-8 col-sm-6 col-lg-5 col-xxl-4">
+    <form
+      autoComplete="off"
+      onSubmit={handleSubmit}
+      className=" col-8 col-sm-6 col-lg-5 col-xxl-4"
+    >
       <div className="">
         <div className="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">
+          <span className="input-group-text" id="basic-addon1">
             Email
           </span>
           <input
@@ -44,7 +48,7 @@ const LoginForm = (props) => {
           />
         </div>
         <div className="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">
+          <span className="input-group-text" id="basic-addon1">
             Password
           </span>
           <input
