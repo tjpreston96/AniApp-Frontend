@@ -42,14 +42,24 @@ async function add(type, id) {
 }
 
 async function remove(type, id) {
-  const res = await fetch(`${BASE_URL}/user/collection/${type}/remove`,
-  {
+  const res = await fetch(`${BASE_URL}/user/collection/${type}/remove`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${tokenService.getToken()}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ type, id }),
+  });
+  return res.json();
+}
+
+async function currentUserCollection(type) {
+  const res = await fetch(`${BASE_URL}/user/current-collection/${type}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${tokenService.getToken()}`,
+      "Content-Type": "application/json",
+    },
   });
   return res.json();
 }
@@ -66,4 +76,11 @@ async function userCollection(type) {
   return res.json();
 }
 
-export { getCollection, search, add, remove, userCollection };
+export {
+  getCollection,
+  search,
+  add,
+  remove,
+  currentUserCollection,
+  userCollection,
+};
