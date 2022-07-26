@@ -45,7 +45,11 @@ const NavBar = ({ user, handleLogout }) => {
                     aria-labelledby="navbarDropdown"
                   >
                     <li>
-                      <Link className="dropdown-item" to="#">
+                      <Link
+                        className="dropdown-item"
+                        to="/collection/anime"
+                        state={{ type: "anime" }}
+                      >
                         Collection
                       </Link>
                     </li>
@@ -78,7 +82,11 @@ const NavBar = ({ user, handleLogout }) => {
                     aria-labelledby="navbarDropdown"
                   >
                     <li>
-                      <Link className="dropdown-item" to="#">
+                      <Link
+                        className="dropdown-item"
+                        to="/collection/manga"
+                        state={{ type: "manga" }}
+                      >
                         Collection
                       </Link>
                     </li>
