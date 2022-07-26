@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import ResultsList from "../../components/ResultsList/ResultsList";
 import ResultDetail from "../../components/ResultDetail/ResultDetail";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import { userCollection } from "../../services/mediaService";
+import { currentUserCollection } from "../../services/mediaService";
 
 const Search = () => {
   let location = useLocation();
@@ -16,18 +16,24 @@ const Search = () => {
   const [mangaCollection, setMangaCollection] = useState(null);
   const [animeCollection, setAnimeCollection] = useState(null);
 
+  const setLocation = () => setType(location.state.type);
+
   async function setACollection() {
-    setAnimeCollection(await userCollection("anime"));
+    setAnimeCollection(await currentUserCollection("anime"));
   }
 
   async function setMCollection() {
-    setMangaCollection(await userCollection("manga"));
+    setMangaCollection(await currentUserCollection("manga"));
   }
 
   useEffect(() => {
     setACollection();
     setMCollection();
   }, []);
+
+  useEffect(() => {
+    setLocation();
+  });
 
   return (
     <div className="container">
