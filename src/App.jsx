@@ -8,6 +8,8 @@ import Landing from "./pages/Landing/Landing";
 import Profiles from "./pages/Profiles/Profiles";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import * as authService from "./services/authService";
+import PrivateWrapper from "./utils/PrivateWrapper/PrivateWrapper";
+import Collection from "./pages/Collection/Collection";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -28,7 +30,6 @@ const App = () => {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
-        <Route path="/search" element={<Search user={user} />} />
 
         <Route
           path="/signup"
@@ -38,20 +39,18 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        <Route
-          path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/changePassword"
-          element={
-            user ? (
+        {/* Protected Routes */}
+        <Route element={<PrivateWrapper user={user} />}>
+          <Route path="/search" element={<Search />} />
+          <Route path="/collection/:type" element={<Collection />} />
+          <Route path="/profiles" element={<Profiles />} />
+          <Route
+            path="/changePassword"
+            element={
               <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
+            }
+          />
+        </Route>
       </Routes>
     </>
   );
