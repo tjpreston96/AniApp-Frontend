@@ -22,7 +22,7 @@ const SearchBar = ({
   };
 
   return (
-    <form onSubmit={onSubmit} className="d-flex">
+    <form onSubmit={onSubmit} className="">
       <div className="input-group">
         <span
           className={
@@ -30,7 +30,7 @@ const SearchBar = ({
               ? "input-group-text btn btn-dark"
               : "input-group-text btn btn-secondary"
           }
-          id="basic-addon2 "
+          id="button-addon2 "
           onClick={() => setType("anime")}
         >
           <i className="bi bi-tv d-inline" />
@@ -43,7 +43,7 @@ const SearchBar = ({
               ? "input-group-text btn btn-dark"
               : "input-group-text btn btn-secondary"
           }
-          id="basic-addon1"
+          id="button-addon1"
           onClick={() => setType("manga")}
         >
           <i className="bi bi-book d-inline" />
