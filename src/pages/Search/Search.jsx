@@ -33,7 +33,7 @@ const Search = () => {
 
   useEffect(() => {
     setLocation();
-  });
+  }, []);
 
   return (
     <div className="container">
