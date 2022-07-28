@@ -13,7 +13,7 @@ const Clock = () => {
   }, [setTime, setDate]);
 
   return (
-    <h3 className="text-center">
+    <h3 className="text-center text-white">
       Today's Date: <br />
       {date} <br />
       {time}
