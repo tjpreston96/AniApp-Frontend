@@ -8,6 +8,7 @@ const Collection = () => {
   let location = useLocation();
   const [type, setType] = useState(location.state.type);
   const [results, setResults] = useState(null);
+  const [resultsLength, setResultsLength] = useState(null);
   const [selectedResult, setSelectedResult] = useState(null);
   const [selectedIdx, setSelectedIdx] = useState(null);
 
@@ -18,6 +19,7 @@ const Collection = () => {
       setResults(response);
       setSelectedIdx(initIdx);
       setSelectedResult(response[initIdx]);
+      setResultsLength(response.length);
     });
   }
 
@@ -42,6 +44,7 @@ const Collection = () => {
                 result={selectedResult}
                 setCollectionResults={setCollectionResults}
                 selectedIdx={selectedIdx}
+                lastIdx={resultsLength - 1}
               />
             )}
           </div>
