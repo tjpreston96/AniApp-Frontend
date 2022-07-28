@@ -50,7 +50,7 @@ const LoginForm = (props) => {
             name="email"
             onChange={handleChange}
           />
-          <label for="floatingInput">Email address</label>
+          <label htmlFor="floatingInput">Email address</label>
         </div>
         <div className="form-floating">
           <input
@@ -61,7 +61,7 @@ const LoginForm = (props) => {
             name="pw"
             onChange={handleChange}
           />
-          <label for="floatingPassword">Password</label>
+          <label htmlFor="floatingPassword">Password</label>
         </div>
 
         <button
