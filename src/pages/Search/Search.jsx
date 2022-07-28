@@ -16,8 +16,6 @@ const Search = () => {
   const [mangaCollection, setMangaCollection] = useState(null);
   const [animeCollection, setAnimeCollection] = useState(null);
 
-  const setLocation = () => setType(location.state.type);
-
   async function setACollection() {
     setAnimeCollection(await currentUserCollection("anime"));
   }
@@ -32,8 +30,9 @@ const Search = () => {
   }, []);
 
   useEffect(() => {
+    const setLocation = () => setType(location.state.type);
     setLocation();
-  }, []);
+  }, [location.state.type]);
 
   return (
     <div className="container">
