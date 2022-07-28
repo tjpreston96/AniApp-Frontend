@@ -140,7 +140,7 @@ const NavBar = ({ user, handleLogout }) => {
                         className="dropdown-item"
                         onClick={handleLogout}
                       >
-                        LOG OUT
+                        Log Out ({user.name})
                       </Link>
                     </li>
                   </ul>
