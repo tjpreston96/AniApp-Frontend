@@ -7,6 +7,7 @@ const LoginForm = (props) => {
     email: "",
     pw: "",
   });
+  const { email, pw } = formData;
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -25,49 +26,56 @@ const LoginForm = (props) => {
     }
   };
 
+  const isFormInvalid = () => {
+    return (email && pw) === "";
+  };
+
   return (
-    <form
-      autoComplete="off"
-      onSubmit={handleSubmit}
-      className=" col-8 col-sm-6 col-lg-5 col-xxl-4"
-    >
-      <div className="">
-        <div className="input-group mb-3">
-          <span className="input-group-text" id="basic-addon1">
-            Email
-          </span>
+    <>
+      <form
+        autoComplete="off"
+        onSubmit={handleSubmit}
+        className="container col-9 col-sm-8 col-md-6 col-xxl-4 justify-content-center"
+      >
+        <h3 className="mb-3 fw-normal text-center text-white">
+          Please sign in
+        </h3>
+
+        <div className="form-floating">
           <input
-            type="text"
-            autoComplete="off"
-            className="form-control "
-            id="email"
+            type="email"
+            className="form-control"
+            id="floatingEmail"
             value={formData.email}
             name="email"
             onChange={handleChange}
           />
+          <label for="floatingInput">Email address</label>
         </div>
-        <div className="input-group mb-3">
-          <span className="input-group-text" id="basic-addon1">
-            Password
-          </span>
+        <div className="form-floating">
           <input
             type="password"
-            autoComplete="off"
-            className="form-control "
-            id="password"
+            className="form-control"
+            id="floatingPassword"
             value={formData.pw}
             name="pw"
             onChange={handleChange}
           />
+          <label for="floatingPassword">Password</label>
         </div>
-      </div>
-      <div className="d-flex justify-content-center">
-        <button className="btn btn-info me-3">Log In</button>
-        <Link to="/" className="btn btn-secondary">
-          Cancel
-        </Link>
-      </div>
-    </form>
+
+        <button
+          className="w-100 btn btn-lg btn-info mt-2 mb-1"
+          type="submit"
+          disabled={isFormInvalid()}
+        >
+          Sign in
+        </button>
+      </form>
+      <p className="text-muted text-center">
+        Don't have an account? <Link to="/signup">Sign up</Link>
+      </p>
+    </>
   );
 };
 
