@@ -1,8 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./CollectionDetail.module.css";
 import { remove } from "../../services/mediaService";
 
-const CollectionDetail = ({ result, setCollectionResults, selectedIdx }) => {
+const CollectionDetail = ({
+  result,
+  setCollectionResults,
+  selectedIdx,
+  lastIdx,
+}) => {
   const [showMore, setShowMore] = useState(false);
 
   function handleMoreClick() {
@@ -10,9 +15,10 @@ const CollectionDetail = ({ result, setCollectionResults, selectedIdx }) => {
   }
 
   function handleCollectionRemoval() {
-    let idx = selectedIdx
     remove(result.type, result.id).then(() => {
-      setCollectionResults(idx);
+      selectedIdx === lastIdx
+        ? setCollectionResults(selectedIdx - 1)
+        : setCollectionResults(selectedIdx);
     });
   }
 
