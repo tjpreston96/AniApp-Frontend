@@ -70,10 +70,10 @@ const Collection = () => {
                 <h6 className="card-title">Add your favorite {type}.</h6>
                 <Link
                   to="/search"
-                  className="btn btn-info col-3 col-lg-3"
+                  className="btn btn-info col-3 col-lg-3 d-inline"
                   state={{ type: `${type}` }}
                 >
-                  Search <i className="bi bi-search d-inline" />
+                  Search <i className="bi bi-search" />
                 </Link>
               </div>
             </div>
