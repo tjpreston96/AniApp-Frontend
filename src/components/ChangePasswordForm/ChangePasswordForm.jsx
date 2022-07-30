@@ -1,96 +1,94 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import styles from './ChangePasswordForm.module.css'
-import * as authService from '../../services/authService'
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import * as authService from "../../services/authService";
 
-const ChangePasswordForm = props => {
-  const navigate = useNavigate()
+const ChangePasswordForm = (props) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    pw: '',
-    newPw: '',
-    newPwConf: '',
-  })
+    pw: "",
+    newPw: "",
+    newPwConf: "",
+  });
 
-  const handleChange = e => {
-    props.updateMessage('')
+  const handleChange = (e) => {
+    props.updateMessage("");
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
-  const handleSubmit = async e => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      await authService.changePassword(formData)
-      props.handleSignupOrLogin()
-      navigate('/')
+      await authService.changePassword(formData);
+      props.handleSignupOrLogin();
+      navigate("/");
     } catch (err) {
-      props.updateMessage(err.message)
+      props.updateMessage(err.message);
     }
-  }
+  };
 
-  const { pw, newPw, newPwConf } = formData
+  const { pw, newPw, newPwConf } = formData;
 
   const isFormInvalid = () => {
-    return !(pw && newPw && newPw === newPwConf)
-  }
+    return !(pw && newPw && newPw === newPwConf);
+  };
 
   return (
-    <form
-      autoComplete="off"
-      onSubmit={handleSubmit}
-      className={styles.container}
-    >
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>
-          Current Password
-        </label>
-        <input
-          type="password"
-          autoComplete="off"
-          id="password"
-          value={pw}
-          name="pw"
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="newPassword" className={styles.label}>
-          New Password
-        </label>
-        <input
-          type="password"
-          autoComplete="off"
-          id="newPassword"
-          value={newPw}
-          name="newPw"
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="newPasswordConf" className={styles.label}>
-          Confirm New Password
-        </label>
-        <input
-          type="password"
-          autoComplete="off"
-          id="newPasswordConf"
-          value={newPwConf}
-          name="newPwConf"
-          onChange={handleChange}
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+    <div className="container justify-content-center col-9 col-sm-8 col-md-6 col-xxl-4 ">
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <h3 className="mb-3 fw-normal text-center text-white">
+          Update credentials
+        </h3>
+
+        <div className="form-floating ">
+          <input
+            type="text"
+            className="form-control"
+            id="floatingName"
+            value={pw}
+            name="pw"
+            onChange={handleChange}
+          />
+          <label htmlFor="floatingName">Current Password</label>
+        </div>
+        <div className="form-floating ">
+          <input
+            type="email"
+            className="form-control"
+            id="floatingEmail"
+            value={newPw}
+            name="newPw"
+            onChange={handleChange}
+          />
+          <label htmlFor="floatingEmail">New Password</label>
+        </div>
+        <div className="form-floating ">
+          <input
+            type="password"
+            className="form-control"
+            id="floatingPass"
+            value={newPwConf}
+            name="newPwConf"
+            onChange={handleChange}
+          />
+          <label htmlFor="floatingPass">Confirm New Password</label>
+        </div>
+
+        <button
+          className="w-100 btn btn-lg btn-info mt-3"
+          type="submit"
+          disabled={isFormInvalid()}
+        >
           Change Password
         </button>
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
-      </div>
-    </form>
-  )
-}
+      </form>
+      <Link to="/" className="w-100 btn btn-lg btn-secondary mt-1 ">
+        Cancel
+      </Link>
+    </div>
+  );
+};
 
-export default ChangePasswordForm
+export default ChangePasswordForm;
