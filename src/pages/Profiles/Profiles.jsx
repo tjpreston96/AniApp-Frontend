@@ -29,22 +29,22 @@ const Profiles = () => {
 
     return (
       <div className="col" key={profile._id}>
-        <div class="card h-100" style={{ maxWidth: 540 }}>
-          <div class="row g-0">
-            <div class="col-4">
+        <div className="card h-100" style={{ maxWidth: 540 }}>
+          <div className="row g-0">
+            <div className="col-4">
               <img
                 src={profile.photo}
-                class="img-fluid rounded-start h-100"
+                className="img-fluid rounded-start h-100"
                 alt="..."
                 style={{ maxHeight: 130 }}
               />
             </div>
-            <div class="col-8">
-              <div class="card-body">
-                <h5 class="card-title">{profile.name}</h5>
-                <p class="card-text">{partialEmail}</p>
-                <p class="card-text">
-                  <small class="text-muted">Created: {formattedDate}</small>
+            <div className="col-8">
+              <div className="card-body">
+                <h5 className="card-title">{profile.name}</h5>
+                <p className="card-text">{partialEmail}</p>
+                <p className="card-text">
+                  <small className="text-muted">Created: {formattedDate}</small>
                 </p>
               </div>
             </div>
@@ -59,7 +59,7 @@ const Profiles = () => {
       <h1 className="text-center text-white">Profile List</h1>
       <h5 className="text-center text-white">{memberCount} Profiles</h5>
       {profiles.length ? (
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
           {profileMap}
         </div>
       ) : (
