@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
 import Search from "./pages/Search/Search";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
@@ -10,6 +11,7 @@ import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import * as authService from "./services/authService";
 import PrivateWrapper from "./utils/PrivateWrapper/PrivateWrapper";
 import Collection from "./pages/Collection/Collection";
+import "./App.css";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -52,6 +54,7 @@ const App = () => {
           />
         </Route>
       </Routes>
+      <Footer />
     </>
   );
 };
