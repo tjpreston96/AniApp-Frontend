@@ -55,7 +55,7 @@ const Profiles = () => {
   });
 
   return (
-    <div className="container">
+    <main className="container flex-shrink-0">
       <h1 className="text-center text-white">Profile List</h1>
       <h5 className="text-center text-white">{memberCount} Profiles</h5>
       {profiles.length ? (
@@ -65,7 +65,7 @@ const Profiles = () => {
       ) : (
         <p>No profiles yet</p>
       )}
-    </div>
+    </main>
   );
 };
 

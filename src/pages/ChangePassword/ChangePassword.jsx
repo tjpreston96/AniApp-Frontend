@@ -9,7 +9,7 @@ const ChangePassword = (props) => {
   };
 
   return (
-    <main className="container">
+    <main className="container flex-shrink-0">
       <h1 className="text-white text-center">AniApp</h1>
       <p>{message}</p>
       <ChangePasswordForm {...props} updateMessage={updateMessage} />
