@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer bg-dark text-center text-white mt-3">
+    <footer className="footer bg-dark text-center text-white mt-auto">
       {/* <!-- Grid container --> */}
 
       <div className="text-center p-3 d-flex flex-column">
