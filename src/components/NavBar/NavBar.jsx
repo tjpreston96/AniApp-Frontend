@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = ({ user, handleLogout }) => {
   return (
-    <>
+    <header>
       {user ? (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
           <div className="container-fluid">
@@ -206,7 +206,7 @@ const NavBar = ({ user, handleLogout }) => {
           </div>
         </nav>
       )}
-    </>
+    </header>
   );
 };
 
