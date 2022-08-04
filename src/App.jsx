@@ -12,7 +12,6 @@ import * as authService from "./services/authService";
 import PrivateWrapper from "./utils/PrivateWrapper/PrivateWrapper";
 import Collection from "./pages/Collection/Collection";
 
-
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="d-flex flex-column vh-100">
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
@@ -55,7 +54,7 @@ const App = () => {
         </Route>
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 };
 
