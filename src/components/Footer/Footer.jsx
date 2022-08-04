@@ -1,14 +1,9 @@
-import { Link } from "react-router-dom";
-
 const Footer = () => {
   return (
-    <footer className="bg-dark text-center text-white mt-3 position-absolute bottom-0 min-vw-100">
+    <footer className="footer bg-dark text-center text-white mt-3">
       {/* <!-- Grid container --> */}
 
-      <div
-        className="text-center p-3 d-flex flex-column"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-      >
+      <div className="text-center p-3 d-flex flex-column">
         {/* <!-- Section: Social media --> */}
         <div className="d-inline">
           {/* <!-- Google --> */}
