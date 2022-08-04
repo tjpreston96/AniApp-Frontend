@@ -2,32 +2,53 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <div class="col-md-4 d-flex align-items-center">
-        <Link
-          to="/"
-          class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
-        ></Link>
-        <span class="text-muted">Created by Tyler Preston</span>
-      </div>
+    <footer className="bg-dark text-center text-white mt-3">
+      {/* <!-- Grid container --> */}
 
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3">
-          <Link class="text-muted" to="!#">
-            <i class="bi bi-linkedin"></i>
+      <div
+        className="text-center p-3 d-flex flex-column"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+      >
+        {/* <!-- Section: Social media --> */}
+        <div className="d-inline">
+          {/* <!-- Google --> */}
+          <Link
+            className="btn btn-outline-light btn-floating m-1 mb-2"
+            to="#!"
+            role="button"
+            onClick={() => (window.location = "mailto:tpreston96@gmail.com")}
+          >
+            <i className="fab fa-google"></i>
           </Link>
-        </li>
-        <li class="ms-3">
-          <Link class="text-muted" to="!#">
-            <i class="bi bi-github"></i>
+
+          {/* <!-- Linkedin --> */}
+          <Link
+            className="btn btn-outline-light btn-floating m-1 mb-2"
+            to="https://www.linkedin.com/in/tylerjpreston/"
+            role="button"
+          >
+            <i className="fab fa-linkedin-in"></i>
           </Link>
-        </li>
-        <li class="ms-3">
-          <Link class="text-muted" to="!#">
-            <svg class="bi" width="24" height="24"></svg>
+
+          {/* <!-- Github --> */}
+          <Link
+            className="btn btn-outline-light btn-floating m-1 mb-2"
+            to="https://github.com/tjpreston96"
+            role="button"
+          >
+            <i className="fab fa-github"></i>
           </Link>
-        </li>
-      </ul>
+        </div>
+
+        {/* <!-- Copyright --> */}
+        <div className="d-inline">
+          © 2022 Copyright:{" "}
+          <Link className="text-white" to="https://github.com/tjpreston96">
+            Tyler Preston
+          </Link>
+        </div>
+      </div>
+      {/* <!-- Copyright --> */}
     </footer>
   );
 };
