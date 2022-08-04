@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-center text-white mt-3 fixed-bottom">
+    <footer className="bg-dark text-center text-white mt-3 position-absolute min-vw-100">
       {/* <!-- Grid container --> */}
 
       <div
@@ -31,13 +31,13 @@ const Footer = () => {
           </Link>
 
           {/* <!-- Github --> */}
-          <Link
+          <a
             className="btn btn-outline-light btn-floating m-1 mb-2"
-            to="https://github.com/tjpreston96"
+            href="https://github.com/tjpreston96"
             role="button"
           >
             <i className="fab fa-github"></i>
-          </Link>
+          </a>
         </div>
 
         {/* <!-- Copyright --> */}
