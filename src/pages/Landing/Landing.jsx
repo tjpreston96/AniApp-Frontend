@@ -8,13 +8,13 @@ const Landing = ({ user }) => {
   useEffect(() => {}, []);
 
   return (
-    <main className="container flex-shrink-0">
+    <main className="container flex-shrink-0 mb-3">
       <h1 className="text-center text-white">
         Hello, {user ? user.name : "Friend"}
       </h1>
       <Clock />
 
-      <div className="row justify-content-center mb-2">
+      <div className="row justify-content-center">
         <WelcomeImage />
       </div>
       <div className="row justify-content-center d-flex mb-3">

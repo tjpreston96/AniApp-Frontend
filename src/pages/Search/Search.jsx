@@ -35,7 +35,7 @@ const Search = () => {
   }, [location.state.type]);
 
   return (
-    <main className="container flex-shrink-0">
+    <main className="container flex-shrink-0 mb-3">
       <h1 className="text-center text-white">Search Page</h1>
       <SearchBar
         setResults={setResults}

@@ -34,7 +34,7 @@ const Collection = () => {
   });
 
   return (
-    <main className="container flex-shrink-0">
+    <main className="container flex-shrink-0 mb-3">
       <h1 className="text-white text-center">{capType} Collection</h1>
       {results.length ? (
         <div className="row">

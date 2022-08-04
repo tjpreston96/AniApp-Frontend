@@ -22,9 +22,9 @@ const Profiles = () => {
     );
 
     const formattedDate = DateTime.fromISO(profile.createdAt).toLocaleString({
-      weekday: "long",
       month: "long",
       day: "2-digit",
+      year: "numeric"
     });
 
     return (
@@ -36,7 +36,7 @@ const Profiles = () => {
                 src={profile.photo}
                 className="img-fluid rounded-start h-100"
                 alt="..."
-                style={{ maxHeight: 130 }}
+                // style={{ maxHeight: 130 }}
               />
             </div>
             <div className="col-8">
