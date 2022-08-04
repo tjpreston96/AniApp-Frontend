@@ -12,23 +12,22 @@ const Footer = () => {
         {/* <!-- Section: Social media --> */}
         <div className="d-inline">
           {/* <!-- Google --> */}
-          <Link
+          <a
             className="btn btn-outline-light btn-floating m-1 mb-2"
-            to="#!"
+            href="mailto:tpreston96@gmail.com"
             role="button"
-            onClick={() => (window.location = "mailto:tpreston96@gmail.com")}
           >
             <i className="fab fa-google"></i>
-          </Link>
+          </a>
 
           {/* <!-- Linkedin --> */}
-          <Link
+          <a
             className="btn btn-outline-light btn-floating m-1 mb-2"
-            to="https://www.linkedin.com/in/tylerjpreston/"
+            href="https://www.linkedin.com/in/tylerjpreston/"
             role="button"
           >
             <i className="fab fa-linkedin-in"></i>
-          </Link>
+          </a>
 
           {/* <!-- Github --> */}
           <a
@@ -43,9 +42,9 @@ const Footer = () => {
         {/* <!-- Copyright --> */}
         <div className="d-inline">
           © 2022 Copyright:{" "}
-          <Link className="text-white" to="https://github.com/tjpreston96">
+          <a className="text-white" href="https://github.com/tjpreston96">
             Tyler Preston
-          </Link>
+          </a>
         </div>
       </div>
       {/* <!-- Copyright --> */}
