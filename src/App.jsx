@@ -11,7 +11,7 @@ import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import * as authService from "./services/authService";
 import PrivateWrapper from "./utils/PrivateWrapper/PrivateWrapper";
 import Collection from "./pages/Collection/Collection";
-import "./App.css";
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
